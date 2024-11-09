@@ -3,7 +3,7 @@ import message from "../assets/msg.png"
 import mail from "../assets/mail.png"
 import phone from "../assets/phone.png"
 import location from "../assets/location.png"
-import arrow from "../assets/left.png"
+import arrow from "../assets/right.png"
 const ContactUs = () => {
     return (
         <div id='contact' className='contact container'>
@@ -11,8 +11,10 @@ const ContactUs = () => {
           <h2 className='main-h2'>Get in Touch</h2>
           <div className='contact-main'>
             <div className='cnt-info'>
+              
               <h3>Send us a message</h3>
               <img className='msg' src={message} />
+              
               <p>Feel free to reach out through contact form or find our contact information below. Your feedback, questions, and suggestions are important to us as we strive to provide exceptional service to our university community.</p>
               <ul>
                 <li>
