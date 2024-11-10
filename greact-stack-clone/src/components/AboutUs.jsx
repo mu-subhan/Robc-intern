@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import graduationImage from '../assets/grp-member.png';
 import playButton from '../assets/play-button.png';
-
+import vedio from "../assets/v1.mp4"; 
 
 const AboutUs = () => {
+  // State to manage whether the video is playing or not
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Function to toggle video play/pause
+  const handlePlayPause = () => {
+    const videoElement = document.getElementById('video');
+    if (isPlaying) {
+      videoElement.pause();
+    } else {
+      videoElement.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className="about-us-container">
       <div className="image-container">
-        <img src={graduationImage} alt="Graduates" className="main-image" />
-        <img src={playButton} alt="Play Button" className="play-button" />
+        {/* Video Element */}
+        <video
+          id="video"
+          src={vedio}
+          className="main-video"
+          controls
+          style={{ display: isPlaying ? 'block' : 'none' }} // Hide image when video is playing
+        />
+        <img
+          src={graduationImage}
+          alt="Graduates"
+          className={`main-image ${isPlaying ? 'hidden' : ''}`} // Hide image when video is playing
+        />
+        <img
+          src={playButton}
+          alt="Play Button"
+          className="play-button"
+          onClick={handlePlayPause}
+          style={{ display: isPlaying ? 'none' : 'block' }} // Hide play button when video is playing
+        />
       </div>
       <div className="text-container">
         <h4 className="about-title">About University</h4>
